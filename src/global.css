@@ -3,3 +3,27 @@ body {
   padding: 0;
   font: 15px Roboto, sans-serif;
 }
+
+body a {
+  text-decoration: none;
+  color: black;
+}
+
+.button {
+  margin: 0.5rem;
+  margin-top: 1rem;
+  width: 7rem;
+  height: 3rem;
+  border-radius: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-primary {
+  background-color: green
+}
+
+.button-secondary {
+  background-color: gray
+}

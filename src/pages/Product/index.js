@@ -25,8 +25,8 @@ function Product() {
             <span>R$00,00</span>
 
             <div className="group-button">
-              <button>Comprar</button>
-              <button>Adicionar ao carrinho</button>
+              <Link to="/buy" className="button button-primary">Comprar</Link>
+              <Link to="/cart" className="button button-secondary">Adicionar ao carrinho</Link>
             </div>
           </div>
         </div>

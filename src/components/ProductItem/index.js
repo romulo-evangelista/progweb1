@@ -15,11 +15,9 @@ function ProductItem() {
           ultrices consectetur.
         </p>
         
-        
-        <div className="product-footer">
-          <span>R$00,00</span>
-          <Link to="/products">Comprar</Link>
-        </div>
+        <span>R$00,00</span>
+
+        <Link to="/products" className="button button-primary">Comprar</Link>
        
       </div>      
     </div>

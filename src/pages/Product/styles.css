@@ -28,14 +28,9 @@
   font: 700 1.2rem Roboto, sans-serif;
 }
 
-#product-content .product-details .product-info .product-footer .group-button {
+#product-content .product-details .product-footer .group-button {
   display: flex;
   justify-content: space-between;
-}
-
-#product-content .product-details .product-info .product-footer .group-button button {
-  margin: 0.5rem;
-  width: 7rem;
 }
 
 @media (min-width: 1100px) {
