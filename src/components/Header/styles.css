@@ -1,0 +1,20 @@
+#header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+#header .search {
+  width: 10rem;
+  background-color: blanchedalmond;
+  border-radius: 8px;
+  line-height: 1.5rem;
+}
+
+@media (min-width: 1100px) {
+  #header .search {
+    width: 50rem;
+  }
+}

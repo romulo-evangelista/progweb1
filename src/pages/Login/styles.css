@@ -1,0 +1,54 @@
+#login-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#login-container p {
+  text-align: center;
+  width: 320px;
+  font: 700 2.5rem Domine, serif;
+}
+
+#login-container form .login,
+#login-container form .password {
+  width: 300px;
+  padding-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#login-container form .password {
+  padding-bottom: 1.4rem;
+}
+
+#login-container form label {
+  font: 18px 'Roboto', sans-serif;
+}
+
+#login-container form button {
+  margin-right: 10rem;
+}
+
+@media (min-width: 1100px) {
+  #login-container {
+    flex-direction: row;
+  }
+
+  #login-container p {
+    width: 650px;
+    font: 700 5rem Domine, serif;
+  }
+
+  #login-container form .login,
+  #login-container form .password {
+    width: 200px;
+  }
+
+  #login-container form button {
+    margin-right: 4rem;
+  }
+}
