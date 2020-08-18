@@ -16,7 +16,7 @@ function CartItem() {
         <div className="footer-info">
           <div className="product-quant">
             <div className="less">-</div>
-            <input type="number" name="quant" id="quant"/>
+            <input type="text" name="quant" id="quant"/>
             <div className="more">+</div>
           </div>
          
