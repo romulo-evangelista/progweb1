@@ -13,6 +13,13 @@
   font: 700 2.5rem Domine, serif;
 }
 
+#login-container .erro {
+  text-align: left;
+  color: red;
+  width: 200px;
+  font: 400 1rem Domine, serif;
+}
+
 #login-container form .login,
 #login-container form .password {
   width: 300px;
