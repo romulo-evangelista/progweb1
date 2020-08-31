@@ -43,7 +43,8 @@ function Login() {
             type="text"
             name="login"
             id="login"
-            onChange={ e => setLogin(e.target.value) }/>
+            onChange={ e => setLogin(e.target.value) }
+          />
         </div>
         
         <div className="password">
@@ -52,7 +53,8 @@ function Login() {
             type="password"
             name="password"
             id="password"
-            onChange={ e => setSenha(e.target.value) }/>
+            onChange={ e => setSenha(e.target.value) }
+          />
         </div>
         <button className="button" type="submit">Entrar</button>
         <Link className="button-register" to="/register">Cadastre-se</Link>

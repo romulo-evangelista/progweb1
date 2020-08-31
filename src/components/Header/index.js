@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import Logout from '../Logout';
+
 import './styles.css';
 
 function Header() {
@@ -11,6 +13,8 @@ function Header() {
       <input type="text" className="search" placeholder="Search" />
 
       <img src="perfil" alt="perfil"/>
+
+      <Logout />
     </div>
   );
 }
