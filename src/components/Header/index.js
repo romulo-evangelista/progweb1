@@ -6,6 +6,8 @@ import Logout from '../Logout';
 import './styles.css';
 
 function Header() {
+  const userId = localStorage.userId;
+
   return (
     <div id="header">
       <Link to="/home"><img src="logo" alt="Logo"/></Link>
@@ -14,7 +16,13 @@ function Header() {
 
       <img src="perfil" alt="perfil"/>
 
-      <Logout />
+      
+      {userId ? <Logout /> : 
+        <div>
+          <Link to="/">Login</Link>--- 
+          <Link to="/register">Cadatre-se</Link>
+        </div>
+      }
     </div>
   );
 }
