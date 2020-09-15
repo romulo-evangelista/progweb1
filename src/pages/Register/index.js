@@ -30,7 +30,7 @@ function Register() {
           senha
         });
         
-        history.push('/');
+        history.push('/login');
       } catch(err) {
         console.log(err);
         setErro("Houve um problema com o cadastro, verifique seus dados.");
@@ -94,7 +94,7 @@ function Register() {
           />
         </div>
         <button className="button" type="submit">Registrar</button>
-        <Link className="button-login" to="/">Login</Link>
+        <Link className="button-login" to="/login">Login</Link>
       </form>
     </div>
   );

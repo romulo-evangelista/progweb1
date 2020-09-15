@@ -1,0 +1,23 @@
+#category-item {
+  margin: 2rem;
+  padding: 0.3rem;
+  text-align: center;
+  border-radius: 0.8rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+#category-item .options {
+  display: flex;
+  justify-content: center;
+}
+
+#category-item .options .button-delete {
+  width: 70px;
+}
+
+@media (min-width: 1100px) {
+  #category-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

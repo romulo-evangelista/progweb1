@@ -1,0 +1,60 @@
+#admin-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#admin-container .banner {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: blueviolet;
+}
+
+#admin-container .banner h1 {
+  font: 700 2.5rem Domine, serif;
+}
+
+#admin-container .banner p {
+  font: 1.2rem Roboto, sans-serif;
+}
+
+#admin-container .banner span {
+  font: 700 1.2rem Domine, serif;
+}
+
+#admin-container .products-header,
+#admin-container .categories-header {
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  border-bottom: #ccc solid .1rem;
+}
+
+#admin-container .products-header p,
+#admin-container .categories-header p {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+#admin-container .products-header a,
+#admin-container .categories-header a {
+  color: #777373;
+  font-weight: 100;
+}
+
+#admin-container .products-header a span,
+#admin-container .categories-header a span {
+  font-weight: 700;
+}
+
+@media (min-width: 1100px) {  
+  #admin-container article {
+    padding: 5rem 10rem;
+  }
+}

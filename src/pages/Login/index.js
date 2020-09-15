@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import api from '../../services/api';
-import { createSession } from "../../services/auth";
+import { createSession, isAuthorized } from "../../services/auth";
 
 import './styles.css';
 
@@ -21,10 +21,10 @@ function Login() {
       try {
         const response = await api.post('sessions', { login, senha });
         
-        createSession(response.data.token);
+        createSession(response.data.token, response.data.userType);
         localStorage.setItem('userId', response.data.id);        
 
-        history.push('/home');
+        isAuthorized() ? history.push('/admin') : history.push('/');
       } catch(err) {
         setErro("Houve um problema com o login, verifique suas credenciais.");
       }

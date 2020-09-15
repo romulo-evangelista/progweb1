@@ -27,3 +27,7 @@ body a {
 .button-secondary {
   background-color: gray
 }
+
+.button-delete {
+  background-color: red
+}
