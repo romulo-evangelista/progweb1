@@ -1,103 +1,129 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 import api from '../../services/api';
 
+import { isAuthorized } from "../../services/auth";
+
+import Header from '../../components/Header';
+
 import './styles.css';
 
-function Register() {
+function Profile() { 
+  const [user, setUser] = useState({});
   const [nome, setNome] = useState('');
   const [endereco, setEndereco] = useState('');
   const [email, setEmail] = useState('');
   const [login, setLogin] = useState('');
   const [senha, setSenha] = useState('');
-  const [erro, setErro] = useState('');
+
+  const userId = localStorage.getItem('userId');
 
   const history = useHistory();
 
-  async function handleRegister(e) {
-    e.preventDefault();
-
-    if(!nome || !endereco || !email || !login || !senha) {
-      setErro("Preencha os campos.");
+  useEffect(() => {
+    if(isAuthorized()) {
+      api.get(`administrators/${userId}`).then((response) => {
+        setUser(response.data);
+      });
     } else {
-      try {
-        await api.post('clients', {
-          nome,
-          endereco,
-          email,
-          login,
-          senha
-        });
-        
-        history.push('/login');
-      } catch(err) {
-        console.log(err);
-        setErro("Houve um problema com o cadastro, verifique seus dados.");
+      api.get(`clients/${userId}`).then((response) => {
+        setUser(response.data);
+      });
+    }
+  }, []);
+
+  async function handleEditProfile(e) {
+    e.preventDefault();
+    try {
+      const data = {
+        nome: nome !== '' ? nome : user.nome,
+        email: email !== '' ? email : user.email,
+        login: login !== '' ? login : user.login,
+        senha: senha !== '' ? senha : user.senha,
+      };
+
+      if(isAuthorized()){
+        await api.put(`administrators/${userId}`, data);
+      } else {
+        data.endereco = endereco !== '' ? endereco : user.endereco;
+        console.log(data);
+        await api.put(`clients/${userId}`, data);
       }
+          
+      history.push('/login');
+    } catch(err) {
+      console.log(err);
     }
   }
 
   return(
-    <div id="register-container">
-      <p className="title">Nova Conta</p>
-      <form onSubmit={handleRegister}>
-        {erro && <p className="erro">{erro}</p>}
+    <div id="profile-container">
+      <Header />
 
-        <div className="name">
-          <label htmlFor="name">Nome</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            onChange={ e => setNome(e.target.value) }
-          />
-        </div>
-        
-        <div className="address">
-          <label htmlFor="address">Endereco</label>
-          <input
-            type="text"
-            name="address"
-            id="address"
-            onChange={ e => setEndereco(e.target.value) }
-          />
-        </div>
+      <div id="edit-profile">
+        <p className="title">Editar perfil</p>
+        <form onSubmit={handleEditProfile}>
+          <div className="name">
+            <label htmlFor="name">Nome</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              value={nome || user.nome}
+              onChange={e => setNome(e.target.value) }
+            />
+          </div>
+          
+          { !isAuthorized() &&
+            <div className="address">
+              <label htmlFor="address">Endereco</label>
+              <input
+                type="text"
+                name="address"
+                id="address"
+                value={endereco || user.endereco}
+                onChange={ e => setEndereco(e.target.value) }
+              />
+            </div>
+          }
 
-        <div className="email">
-          <label htmlFor="email">Email</label>
-          <input
-            type="text"
-            name="email"
-            id="email"
-            onChange={ e => setEmail(e.target.value) }
-          />
-        </div>
+          <div className="email">
+            <label htmlFor="email">Email</label>
+            <input
+              type="text"
+              name="email"
+              id="email"
+              value={email || user.email}
+              onChange={ e => setEmail(e.target.value) }
+            />
+          </div>
 
-        <div className="login">
-          <label htmlFor="login">Login</label>
-          <input
-            type="text"
-            name="login"
-            id="login"
-            onChange={ e => setLogin(e.target.value) }
-          />
-        </div>
-        
-        <div className="password">
-          <label htmlFor="password">Senha</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            onChange={ e => setSenha(e.target.value) }
-          />
-        </div>
-        <button className="button" type="submit">Registrar</button>
-        <Link className="button-login" to="/login">Login</Link>
-      </form>
+          <div className="login">
+            <label htmlFor="login">Login</label>
+            <input
+              type="text"
+              name="login"
+              id="login"
+              value={login || user.login}
+              onChange={ e => setLogin(e.target.value) }
+            />
+          </div>
+          
+          <div className="password">
+            <label htmlFor="password">Senha</label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              onChange={ e => setSenha(e.target.value) }
+            />
+          </div>
+          <button className="button" type="submit">Salvar</button>
+        </form>
+      </div>
     </div>
   );
 }
 
-export default Register
+export default Profile;

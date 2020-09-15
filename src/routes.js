@@ -5,6 +5,7 @@ import { isAuthenticated, isAuthorized } from "./services/auth";
 
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Profile from './pages/Profile';
 import Home from './pages/Home';
 import Admin from './pages/Admin';
 import Product from './pages/Product';
@@ -46,6 +47,7 @@ function Routes() {
         <AdminRoute path="/admin" component={Admin} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
+        <Route path="/profile" component={Profile} />
         <Route path="/products" exact component={Product} />
         <Route path="/products/new" exact component={NewProduct} />
         <Route path="/categories/new" exact component={NewCategory} />

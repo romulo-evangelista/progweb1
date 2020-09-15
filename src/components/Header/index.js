@@ -18,7 +18,7 @@ function Header() {
 
       <input type="text" className="search" placeholder="Search" />
 
-      <img src="perfil" alt="perfil"/>
+      <Link to='/profile'><img src="perfil" alt="perfil"/></Link>
 
       
       {userId ? <Logout /> : 
