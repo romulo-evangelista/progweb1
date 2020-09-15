@@ -58,8 +58,6 @@ function ProductList() {
               : <div className="options">
                 <Link to="product" className="button button-primary">Comprar</Link>
               </div>
-              
-
             }
           </div>      
         </div>    
