@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import bcryptNodejs from 'bcrypt-nodejs';
 
 import api from '../../services/api';
 
@@ -36,22 +37,27 @@ function Profile() {
   async function handleEditProfile(e) {
     e.preventDefault();
     try {
-      const data = {
+      let data = {
         nome: nome !== '' ? nome : user.nome,
         email: email !== '' ? email : user.email,
         login: login !== '' ? login : user.login,
-        senha: senha !== '' ? senha : user.senha,
       };
+
+      if(senha && senha !== '') {
+        const salt = bcryptNodejs.genSaltSync(8);
+        data.senha = bcryptNodejs.hashSync(senha, salt);
+        console.log(data.senha);
+      }
 
       if(isAuthorized()){
         await api.put(`administrators/${userId}`, data);
+        history.push('/admin');
       } else {
         data.endereco = endereco !== '' ? endereco : user.endereco;
-        console.log(data);
         await api.put(`clients/${userId}`, data);
+        history.push('/');
       }
           
-      history.push('/login');
     } catch(err) {
       console.log(err);
     }
