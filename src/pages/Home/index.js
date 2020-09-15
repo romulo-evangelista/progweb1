@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ProductItem from '../../components/ProductItem';
+import ProductList from '../../components/ProductList';
 import Header from '../../components/Header';
 
 import './styles.css';
@@ -16,11 +16,7 @@ function Home() {
       </div>
 
       <div className="product-list">
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
+        <ProductList />
       </div>
 
     </div> 

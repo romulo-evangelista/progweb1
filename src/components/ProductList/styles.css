@@ -1,5 +1,6 @@
 #product-item {
   margin: 2rem;
+  width: 300px;
   border-radius: 0.8rem;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }

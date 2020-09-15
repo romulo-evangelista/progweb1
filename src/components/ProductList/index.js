@@ -45,14 +45,22 @@ function ProductList() {
             
             <span>R${product.preco}.00</span>
     
-            <div className="options">
-              <Link to="products/edit" className="button button-secondary">Editar</Link>
-              <button onClick={() => handleDelete(product.id)}
-                type="button"
-                className="button button-delete">
-                  Excluir
-              </button>
-            </div>
+            {isAuthorized() ?
+              <div className="options">
+                <Link to="products/edit" className="button button-secondary">Editar</Link>
+                <button onClick={() => handleDelete(product.id)}
+                  type="button"
+                  className="button button-delete">
+                    Excluir
+                </button>
+              </div>
+
+              : <div className="options">
+                <Link to="product" className="button button-primary">Comprar</Link>
+              </div>
+              
+
+            }
           </div>      
         </div>    
       ))}
