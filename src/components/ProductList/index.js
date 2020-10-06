@@ -56,7 +56,7 @@ function ProductList() {
               </div>
 
               : <div className="options">
-                <Link to="product" className="button button-primary">Comprar</Link>
+                <Link to={`/products/${product.id}`} className="button button-primary">Comprar</Link>
               </div>
             }
           </div>      

@@ -48,7 +48,7 @@ function Routes() {
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/profile" component={Profile} />
-        <Route path="/products" exact component={Product} />
+        <Route path="/products/:id" exact component={Product} />
         <Route path="/products/new" exact component={NewProduct} />
         <Route path="/categories/new" exact component={NewCategory} />
         <PrivateRoute path="/cart" component={Cart} />
