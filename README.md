@@ -30,6 +30,10 @@ Interface connstruída para consumit a API do ecommerce (trabalho final da disci
 ## Comprando produtos na loja
 ![](/files/readme/purchase.gif)
 
+## Administrador - Visualizando compras efetuadas
+![](/files/readme/admin-purchases.gif)
+
+
 ## Executando aplicação
 
 No diretório do projeto, você pode rodar:

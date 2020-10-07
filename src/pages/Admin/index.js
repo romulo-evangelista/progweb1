@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Header from '../../components/Header';
 import ProductList from '../../components/ProductList';
 import CategoryList from '../../components/CategoryList';
+import AdminPurchaseList from '../../components/AdminPurchaseList';
 
 import './styles.css';
 
@@ -32,6 +33,13 @@ function Admin() {
             <Link to='/categories/new'><span>+</span> Nova categoria</Link>
           </div>
           <CategoryList />
+        </div>
+
+        <div className="purchase-container">
+          <div className="purchases-header">
+            <p>Compras feitas pelos clientes</p>
+          </div>
+          <AdminPurchaseList />
         </div>
       </article>
     </div> 

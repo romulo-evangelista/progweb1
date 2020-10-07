@@ -26,7 +26,8 @@
 }
 
 #admin-container .products-header,
-#admin-container .categories-header {
+#admin-container .categories-header,
+#admin-container .purchases-header{
   padding: 0 1.5rem;
   display: flex;
   flex-direction: row;
@@ -37,19 +38,22 @@
 }
 
 #admin-container .products-header p,
-#admin-container .categories-header p {
+#admin-container .categories-header p,
+#admin-container .purchases-header p {
   font-size: 1.3rem;
   font-weight: 700;
 }
 
 #admin-container .products-header a,
-#admin-container .categories-header a {
+#admin-container .categories-header a,
+#admin-container .purchases-header a {
   color: #777373;
   font-weight: 100;
 }
 
 #admin-container .products-header a span,
-#admin-container .categories-header a span {
+#admin-container .categories-header a span,
+#admin-container .purchases-header a span {
   font-weight: 700;
 }
 
