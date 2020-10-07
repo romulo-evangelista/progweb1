@@ -27,6 +27,9 @@ Interface connstruída para consumit a API do ecommerce (trabalho final da disci
 ### Interface & Código
 ![](/files/readme/interface-codes.gif)
 
+## Comprando produtos na loja
+![](/files/readme/purchase.gif)
+
 ## Executando aplicação
 
 No diretório do projeto, você pode rodar:

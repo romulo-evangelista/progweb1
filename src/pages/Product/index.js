@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import api from '../../services/api';
 
@@ -8,16 +8,34 @@ import Header from '../../components/Header';
 import './styles.css';
 
 function Product(props) {
-  const id = props.match.params.id;
+  const product_id = props.match.params.id;
   const [product, setProduct] = useState([]);
 
+  const userId = localStorage.getItem('userId');
+
+  const history = useHistory();
+
   useEffect(() => {
-    api.get(`products/${id}`).then(response => {
+    api.get(`products/${product_id}`).then(response => {
       setProduct(response.data);
     }).catch(err => {
       console.log(err)
     });
   }, []);
+
+  async function handleBuy() {
+    try {
+      await api.post('/purchases', {
+        client_id: userId,
+        product_id,
+        quant: 1
+      });
+      
+      history.push('/purchases');
+    } catch(err) {
+      console.log(err);
+    }
+  }
 
   return (
     <div id="product-content">
@@ -35,7 +53,7 @@ function Product(props) {
           <span>R${product.preco}.00</span>
 
           <div className="group-button">
-            <Link to="/buy" className="button button-primary">Comprar</Link>
+            <button onClick={() => handleBuy()} className="button button-primary">Comprar</button>
             <Link to="/cart" className="button button-secondary">Adicionar ao carrinho</Link>
           </div>
         </div>
